@@ -18,6 +18,7 @@ public class Connect extends HttpServlet{
 		Connection conn = null;
 		String sql,sql_info;
 		String resultString ;
+		// add the db connect string include host port dbname and ssl
 		String url_read = "jdbc:mysql://db4free.net:3306/tsbx?useSSL=false";
 		String username_db = "tsbx";
 		String password_db = "mengwei";
@@ -56,6 +57,7 @@ public class Connect extends HttpServlet{
 			}
 			return result;
 		}
+		//encryption the string by md5 
 		public String encryption(String plainText) {
 			String re_md5 = new String();
 			try {
@@ -82,8 +84,9 @@ public class Connect extends HttpServlet{
 			}
 			return re_md5;
 		}
-
-		public String get_username(String username){
+		
+		//add	get user name func to the conncet	
+                public String get_username(String username){
 			try{
 				connect();
 				sql = "select username from login  where username='"+username+"'";
