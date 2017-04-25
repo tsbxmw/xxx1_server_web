@@ -19,19 +19,19 @@ public class Connect extends HttpServlet{
 		String sql,sql_info;
 		String resultString ;
 		// add the db connect string include host port dbname and ssl
-		String url_read = "jdbc:mysql://db4free.net:3306/tsbx?useSSL=false";
-		String username_db = "tsbx";
-		String password_db = "mengwei";
+		String url_read = "jdbc:mysql://bdm277535353.my3w.com:3306/bdm277535353_db?useSSL=false";
+		String username_db = "bdm277535353";
+		String password_db = "fmmw2275wei";
 		Statement  stmt;
 		String [] friend_list = new String [1000];
 		int result = 0,result_1 = 0;
-		
+		//the sae mysql db can not connect
 		/*String url_read = "jdbc:mysql://r.rdc.sae.sona.con.cn:3307/app_tsbx";
 		String url_write = "jdbc:mysql://w.rdc.sae.sona.con.cn:3307/app_tsbx";
 		String username_db="wzy3mxx4yk";
 		String password_db="jxh4li5xm3y4h44wmmi1y4k3x122mlwz540z04yw";
 		*/
-		
+		//add the md5 ( encryption failed )
 		public String md5string(String preString){
 		
 			String result = new String();
@@ -86,7 +86,7 @@ public class Connect extends HttpServlet{
 		}
 		
 		//add	get user name func to the conncet	
-                public String get_username(String username){
+        public String get_username(String username){
 			try{
 				connect();
 				sql = "select username from login  where username='"+username+"'";
@@ -435,6 +435,7 @@ public class Connect extends HttpServlet{
 				return true;
 			return false;
 		}
+		
 		public boolean delete_all(){
 			try{
 				
@@ -502,7 +503,7 @@ public class Connect extends HttpServlet{
 				Class.forName("com.mysql.jdbc.Driver").newInstance();
 				conn = (Connection) DriverManager.getConnection(url_read,username_db,password_db);
 				stmt = (Statement) conn.createStatement();
-				sql = "use tsbx";
+				sql = "use bdm277535353_db";
 				stmt.executeQuery(sql);
 				result = 0;
 				result_1 = 0;
